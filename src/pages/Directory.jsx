@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+// import {useState} from 'react';
 import EmployeeCard from '../components/EmployeeCard'
-import Nav from '../components/Nav'
+
 
 const axios = require('axios');
 
+
 export default class Directory extends Component {
+  
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +15,7 @@ export default class Directory extends Component {
             search: ''
         };
       }
-
+      
       componentDidMount() {
           // call API to load users w axios
           
@@ -26,16 +29,24 @@ export default class Directory extends Component {
     // handle error
     console.log(error);
   })
+ 
       }
 
+     
+
     render() {
+ 
         return (
             <div>
-              
+              {/* <input
+              type='text'
+              placeholder='Search'
+              // onChange={handleChange}
+              // value={input}
+              /> */}
                {this.state.employees.map(employee=>
                 <EmployeeCard key={employee.firstName} employee={employee}/>)}
-                <Nav>
-                </Nav>
+                
             </div>
         )
     }

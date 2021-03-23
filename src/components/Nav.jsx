@@ -1,19 +1,28 @@
-import { useContext } from "react";
-import EmployeeCard from "./EmployeeCard";
+import {useState} from "react";
+import EmployeeCard from './EmployeeCard'
 
-function Nav() {
-  const { handleInputChange } = useContext(EmployeeCard);
+
+const Nav() {
+  const [input,setInput] = useState('')
+  const handleChange = (e)=> {
+    e.preventDefault();
+    setInput(e.target.value)
+  }
+  if(input.length > 0) {
+    employee=employee.filter((i) => {
+      return i.name.(input)
+    })
+  }
   return (
     <div className="row p-3">
       <div className="col-4"></div>
       <div className="col-4">
-        <nav>
+        <nav onSubmit={handleSubmit}>
           <h4>Search by Name:</h4>
-          <input
-            id="employee-search"
-            className="form-control"
-            onChange={handleInputChange}
-          />
+          <input type="text"
+          placeholder='Search'
+          onChange={handleChange}
+          value={input}/>
         </nav>
       </div>
       <div className="col-4"></div>
