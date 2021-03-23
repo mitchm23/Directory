@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import EmployeeCard from '../components/EmployeeCard'
+import Nav from '../components/Nav'
+
 const axios = require('axios');
 
 export default class Directory extends Component {
@@ -29,11 +31,13 @@ export default class Directory extends Component {
     render() {
         return (
             <div>
+              
                {this.state.employees.map(employee=>
                 <EmployeeCard key={employee.firstName} employee={employee}/>)}
+                <Nav>
+                </Nav>
             </div>
         )
     }
-
 
 }
